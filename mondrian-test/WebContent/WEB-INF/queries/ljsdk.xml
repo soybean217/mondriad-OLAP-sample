@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="tezz">
+	<Cube name="Sales">
+		<!-- 事实表(fact table) -->
+		<Table name="charge_info" />
+
+		<Dimension name="productCatalog" foreignKey="xinmei_product_code">
+			<Hierarchy hasAll="true" allMemberName="allProduct"
+				primaryKey="productId">
+				<Table name="lj_products"></Table>
+				<Level name="productTitle" column="productTitle"></Level>
+			</Hierarchy>
+		</Dimension>
+
+		<Measure name="account" column="price" aggregator="sum"
+			datatype="Numeric" />
+
+	</Cube>
+</Schema>
